@@ -17,7 +17,7 @@
 ## 相关资源
 
 - [DeepSeek 开放平台](https://platform.deepseek.com/) — 获取 API Key。
-- [DeepSeek API 文档](https://api-docs.deepseek.com/) — API 参考与使用指南。
+- [DeepSeek API 文档](https://api-docs.deepseek.com/zh-cn/) — API 参考与使用指南。
 
 ## 参与贡献
 
