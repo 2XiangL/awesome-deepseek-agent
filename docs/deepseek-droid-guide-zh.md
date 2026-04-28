@@ -1,15 +1,17 @@
-# 在 Droid 中配置 DeepSeek
+# 在 Factory AI Droid 中配置 DeepSeek
 
-本指南介绍如何将 DeepSeek 模型添加到 Droid 的 `settings.json` 中。
+本指南介绍如何将 DeepSeek 模型添加到 Factory AI Droid 的 `settings.json` 中。
 
 ## 可用模型
 
-| 模型 | 提供商 | Base URL |
-|------|--------|----------|
-| DeepSeek V4 Pro | Anthropic | `https://api.deepseek.com/anthropic` |
-| DeepSeek V4 Flash | Anthropic | `https://api.deepseek.com/anthropic` |
-| DeepSeek V4 Pro (OpenAI) | OpenAI | `https://api.deepseek.com` |
-| DeepSeek V4 Flash (OpenAI) | OpenAI | `https://api.deepseek.com` |
+
+| 模型                         | 提供商       | Base URL                             |
+| -------------------------- | --------- | ------------------------------------ |
+| DeepSeek V4 Pro            | Anthropic | `https://api.deepseek.com/anthropic` |
+| DeepSeek V4 Flash          | Anthropic | `https://api.deepseek.com/anthropic` |
+| DeepSeek V4 Pro (OpenAI)   | OpenAI    | `https://api.deepseek.com`           |
+| DeepSeek V4 Flash (OpenAI) | OpenAI    | `https://api.deepseek.com`           |
+
 
 ## 配置
 
@@ -88,11 +90,13 @@
 
 Factory 支持三种 Provider 类型，决定 API 兼容性：
 
-| Provider | API 格式 | 适用场景 | 文档 |
-|----------|----------|----------|------|
-| `anthropic` | Anthropic Messages API (v1/messages) | Anthropic 官方 API 或兼容代理上的 Anthropic 模型 | [Anthropic Messages API](https://docs.anthropic.com/en/api/messages) |
-| `openai` | OpenAI Responses API | OpenAI 官方 API 或兼容代理上的 OpenAI 模型。新模型如 GPT-5 和 GPT-5-Codex 必须使用此类型。 | [OpenAI Responses API](https://platform.openai.com/docs/api/responses) |
-| `generic-chat-completion-api` | OpenAI Chat Completions API | OpenRouter、Fireworks、Together AI、Ollama、vLLM 及大多数开源 providers | [OpenAI Chat Completions API](https://platform.openai.com/docs/api-reference/chat) |
+
+| Provider                      | API 格式                               | 适用场景                                                              | 文档                                                                                 |
+| ----------------------------- | ------------------------------------ | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `anthropic`                   | Anthropic Messages API (v1/messages) | Anthropic 官方 API 或兼容代理上的 Anthropic 模型                             | [Anthropic Messages API](https://docs.anthropic.com/en/api/messages)               |
+| `openai`                      | OpenAI Responses API                 | OpenAI 官方 API 或兼容代理上的 OpenAI 模型。新模型如 GPT-5 和 GPT-5-Codex 必须使用此类型。 | [OpenAI Responses API](https://platform.openai.com/docs/api/responses)             |
+| `generic-chat-completion-api` | OpenAI Chat Completions API          | OpenRouter、Fireworks、Together AI、Ollama、vLLM 及大多数开源 providers     | [OpenAI Chat Completions API](https://platform.openai.com/docs/api-reference/chat) |
+
 
 DeepSeek V4 Pro 和 V4 Flash 支持 `anthropic` 和 `openai` 两种 Provider 类型。
 
@@ -106,19 +110,24 @@ DeepSeek V4 Pro 和 V4 Flash 支持 `anthropic` 和 `openai` 两种 Provider 类
 ## 故障排除
 
 **模型未出现在选择器中**
+
 - 检查 `~/.factory/settings.json`（或旧版格式的 `config.json`）中的 JSON 语法
 - 设置更改通过文件监视自动检测
 - 验证所有必需字段都存在
 
 **"Invalid provider" 错误**
+
 - Provider 必须恰好是 `anthropic`、`openai` 或 `generic-chat-completion-api`
 - 检查拼写并确保大小写正确
 
 **认证错误**
+
 - 验证您的 API Key 有效且有可用配额
 - 检查 API Key 具有适当的权限
 - 确认 Base URL 与您的 provider 文档匹配
 
 **速率限制或配额错误**
+
 - 检查您的 provider 的速率限制和配额
 - 通过 provider 的仪表板监控使用情况
+
